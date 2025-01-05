@@ -1,0 +1,2545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | SHOOPING INDIA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <link rel="stylesheet" href="\static/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="\static/index.css">
+    <script src="\static/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="text-capitalize bg-body-tertiary">
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg pb-0 px-2 bg-body-secondary flex-column">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand p-0 pb-2 me-4">
+                    <img src="\static/1..png" alt="logo" style="height: 60px;" class="rounded-pill">
+                </a>
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="collapse navbar-collapse  bg-body-secondary nav nav-tabs mynavbar" id="mynavbar">
+                    <li class="nav-itam"><a href="/" class="nav-link {% if request.path == '/' %}active{% endif %} text-dark">home</a></li>
+                    <li class="nav-itam"><a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %} text-dark">about us</a></li>
+                    <li class="nav-itam"><a href="/contact" class="nav-link {% if request.path == '/contact' %}active{% endif %} text-dark">contact us</a></li>
+                    <li class="nav-itam"><a href="/download" class="nav-link {% if request.path == '/download' %}active{% endif %} text-dark">download app</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" data-bs-toggle="dropdown" class="nav-link {% if request.path == '/customer/login/' %} active {% elif request.path == '/customer/profile/' %} active {% elif request.path == '/customer/registration/' %} active {% elif request.path == '/customer/wishlist/' %} active {% endif %} text-dark dropdown-toggle">
+                            profile</a>
+                        <div class="dropdown-menu">
+                            <a href="/customer/profile" class="dropdown-item">profile View</a>
+                            <a href="#" class="dropdown-item">wishlist</a>
+                            <a href="/customer/login" class="dropdown-item">sign in</a>
+                        </div>
+                    </li>
+                    <li class="nav-itam">
+                        <a href="/customer/cart" class="nav-link {% if request.path == '/customer/cart/' %}active{% endif %} text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-cart3" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2">
+                                </path>
+                            </svg> cart
+                        </a>
+                    </li>
+                    <form class="d-flex pb-2 ms-auto">
+                        <input class="form-control mx-2 search-nav" type="text" placeholder="Search">
+                        <button class="btn btn-secondary" type="button">Search</button>
+                    </form>
+                </ul>
+            </div>
+        </nav>
+        <ul class="nav nav-tabs w-100 b-t bg-body-secondary justify-content-evenly" id="catagery">
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    Men's
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Top Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Top Wear</a></li>
+                                <li><a class="dropdown-item" href="#">T-Shirts</a></li>
+                                <li><a class="dropdown-item" href="#">Shirts</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Bottom Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Track Pants</a></li>
+                                <li><a class="dropdown-item" href="#">Jeans</a></li>
+                                <li><a class="dropdown-item" href="#">Trousers</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Men Accessories</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Men Accessories</a></li>
+                                <li><a class="dropdown-item" href="#">Watches</a></li>
+                                <li><a class="dropdown-item" href="#">Belts</a></li>
+                                <li><a class="dropdown-item" href="#">Wallets</a></li>
+                                <li><a class="dropdown-item" href="#">Jewellery</a></li>
+                                <li><a class="dropdown-item" href="#">sunglasses</a></li>
+                                <li><a class="dropdown-item" href="#">bags</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">men footwear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">casual shoes</a></li>
+                                <li><a class="dropdown-item" href="#">sports shoes</a></li>
+                                <li><a class="dropdown-item" href="#">sandals</a></li>
+                                <li><a class="dropdown-item" href="#">formal shoes</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">ethnic Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">men kurtas</a></li>
+                                <li><a class="dropdown-item" href="#">ethnic jackets</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">inner & sleep Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">all inner & sleep Wear</a></li>
+                                <li><a class="dropdown-item" href="#">vests</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    women's
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Top Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Tops</a></li>
+                                <li><a class="dropdown-item" href="#">Dresses</a></li>
+                                <li><a class="dropdown-item" href="#">Sweaters</a></li>
+                                <li><a class="dropdown-item" href="#">Jumpsuits</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Bottom Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Jeans</a></li>
+                                <li><a class="dropdown-item" href="#">Jeggings</a></li>
+                                <li><a class="dropdown-item" href="#">Palazzos</a></li>
+                                <li><a class="dropdown-item" href="#">Shorts</a></li>
+                                <li><a class="dropdown-item" href="#">Skirts</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">inner Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Bra</a></li>
+                                <li><a class="dropdown-item" href="#">Briefs</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">sleep Wear</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Nightsuits</a></li>
+                                <li><a class="dropdown-item" href="#">Babydolls</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    women's ethnic
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Sarees</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Silk Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Cotton Silk Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Cotton Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Georgette Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Chiffon Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Satin Sarees</a></li>
+                                <li><a class="dropdown-item" href="#">Embroidered Sarees</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Kurtis</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Kurtis</a></li>
+                                <li><a class="dropdown-item" href="#">Anarkali Kurtis</a></li>
+                                <li><a class="dropdown-item" href="#">Rayon Kurtis</a></li>
+                                <li><a class="dropdown-item" href="#">Cotton Kurtis</a></li>
+                                <li><a class="dropdown-item" href="#">Embroidered Kurtis</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Kurta Sets</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Kurta Sets</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Suits & Dress Material</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Suits & Dress Material</a></li>
+                                <li><a class="dropdown-item" href="#">Cotton Suits</a></li>
+                                <li><a class="dropdown-item" href="#">Embroidered Suits</a></li>
+                                <li><a class="dropdown-item" href="#">Chanderi Suits</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Other Ethnic</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Blouses</a></li>
+                                <li><a class="dropdown-item" href="#">Dupattas</a></li>
+                                <li><a class="dropdown-item" href="#">Lehanga</a></li>
+                                <li><a class="dropdown-item" href="#">Gown</a></li>
+                                <li><a class="dropdown-item" href="#">Ethnic Bottomwear</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    kid's
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Boys & Girls 2+ Years</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Dresses</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Infant 0-2 Years</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Rompers</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Toys & Accessories</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Soft Toys</a></li>
+                                <li><a class="dropdown-item" href="#">Footwear</a></li>
+                                <li><a class="dropdown-item" href="#">Stationery</a></li>
+                                <li><a class="dropdown-item" href="#">Watches</a></li>
+                                <li><a class="dropdown-item" href="#">Bags & Backpacks</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Baby Care</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Baby Care</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    electronics
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Mobile & Accessories</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Mobile & Accessories</a></li>
+                                <li><a class="dropdown-item" href="#">Smartwatches</a></li>
+                                <li><a class="dropdown-item" href="#">Mobile Holders</a></li>
+                                <li><a class="dropdown-item" href="#">Mobile cases and covers</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Appliances</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Appliances</a></li>
+                                <li><a class="dropdown-item" href="#">Grooming</a></li>
+                                <li><a class="dropdown-item" href="#">Home Appliances</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    Jewellery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Jewellery</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Jewellery Set</a></li>
+                                <li><a class="dropdown-item" href="#">Earrings</a></li>
+                                <li><a class="dropdown-item" href="#">Mangalsutras</a></li>
+                                <li><a class="dropdown-item" href="#">Studs</a></li>
+                                <li><a class="dropdown-item" href="#">Bangles</a></li>
+                                <li><a class="dropdown-item" href="#">Necklaces</a></li>
+                                <li><a class="dropdown-item" href="#">Rings</a></li>
+                                <li><a class="dropdown-item" href="#">Anklets</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Women Accessory</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Bags</a></li>
+                                <li><a class="dropdown-item" href="#">Watches</a></li>
+                                <li><a class="dropdown-item" href="#">Hair Accessories</a></li>
+                                <li><a class="dropdown-item" href="#">Sunglasses</a></li>
+                                <li><a class="dropdown-item" href="#">Socks</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    home & kitchen
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex justify-content-between">
+                        <li>
+                            <div class="dropdown-header">Home Furnishing</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Bedsheets</a></li>
+                                <li><a class="dropdown-item" href="#">Doormats</a></li>
+                                <li><a class="dropdown-item" href="#">Curtains & Sheers</a></li>
+                                <li><a class="dropdown-item" href="#">Cushions & Cushion Covers</a></li>
+                                <li><a class="dropdown-item" href="#">Mattress Protectors</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Home Decor</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">All Home Decor</a></li>
+                                <li><a class="dropdown-item" href="#">Stickers</a></li>
+                                <li><a class="dropdown-item" href="#">Clocks</a></li>
+                                <li><a class="dropdown-item" href="#">Showpieces</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="dropdown-header">Kitchen & Dining</div>
+                            <ul class="list-unstyled">
+                                <li><a class="dropdown-item" href="#">Kitchen Storage</a></li>
+                                <li><a class="dropdown-item" href="#">Cookware & Bakeware</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </ul>
+        <div class="nav nav-tabs w-100 b-t bg-body-secondary justify-content-evenly" id="sm-catagery">
+            <button data-target="categorys" class="categorys-btn">catagery</button>
+            <div id="categorys" class="categorys-btn-div container-fluid">
+                <div class="row" data-bs-spy="scroll" data-bs-target="#categoryMenu" data-bs-offset="50">
+                    <!-- Sidebar -->
+                    <div class="col-3 sidebar bg-body-secondary text-dark" id="categoryMenu">
+                        <a class="p-0 nav-link active" href="#Women_Ethnic">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/women_ethnic_images_64.webp" alt="Women Ethnic">
+                                <div>Women Ethnic</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Women-Western">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/women_western_wear_images_64.webp" alt="Women Western">
+                                <div>Women Western</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Men">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/men_fashion_images_64.webp" alt="Men">
+                                <div>Men</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Kids">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/kids_images_64.webp" alt="Kids">
+                                <div>Kids</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Home-Kitchen">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/home_kitchen_images_64.webp" alt="Home & Kitchen">
+                                <div>Home & Kitchen</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Beauty-Health">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/beauty_health_images_64.webp" alt="Beauty & Health">
+                                <div>Beauty & Health</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Jewellery-Accessories">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/jewellery_accessories_images_64.webp" loading="lazy"
+                                    alt="Jewellery & Accessories">
+                                <div>Jewellery & Accessories</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Bags-Footwear">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/bags_footwear_Images_64.webp" alt="Bags & Footwear">
+                                <div>Bags & Footwear</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Electronics">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/electronics_us_images_64.webp" alt="Electronics">
+                                <div>Electronics</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Sports-Fitness">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/sports_fitness_images_64.webp" alt="Sports & Fitness">
+                                <div>Sports & Fitness</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Car-Motorbike">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/car_motorbike_images_64.webp" alt="Car & Motorbike">
+                                <div>Car & Motorbike</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Office-Supplies-Stationery">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/office_supplies_images_64.webp"
+                                    alt="Office Supplies & Stationery">
+                                <div>Office Supplies & Stationery</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Pet-Supplies">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/pet_supplies_images_64.webp" alt="Pet Supplies">
+                                <div>Pet Supplies</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Food-Drinks">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/food_drinks_images_64.webp" alt="Food & Drinks">
+                                <div>Food & Drinks</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Musical-Instruments">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/musical_instruments_images_64.webp"
+                                    alt="Musical Instruments">
+                                <div>Musical Instruments</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Books">
+                            <div class="sidebar-item">
+                                <img src="\static/mobil categorys/books_images_64.webp" alt="Books">
+                                <div>Books</div>
+                            </div>
+                        </a>
+                        <a class="p-0 nav-link" href="#Help-More" class="more-icon">
+                            <div class="sidebar-item">
+                                <i class="fa-solid fa-ellipsis"></i>
+                                <div>Help & More</div>
+                            </div>
+                        </a>
+                        <div class="space"></div>
+                    </div>
+
+                    <!-- Product Section -->
+                    <div class="col-9 product-section bg-body-secondary text-dark" id="product-section">
+                        <section id="Women_Ethnic">
+                            <div class="product-title">Women Ethnic</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Sarees</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/all sarees.webp">
+                                        <img src="\static/mobil categorys/all sarees.webp" loading="lazy"
+                                            alt="all sarees">
+                                        <div>all sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/silk sarees.webp">
+                                        <img src="\static/mobil categorys/silk sarees.webp" loading="lazy"
+                                            alt="Silk sarees">
+                                        <div>Silk sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/banarasi silk sarees.webp">
+                                        <img src="\static/mobil categorys/banarasi silk sarees.webp" loading="lazy"
+                                            alt="banarasi Silk sarees">
+                                        <div>banarasi Silk sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/cotton sarees.webp">
+                                        <img src="\static/mobil categorys/cotton sarees.webp" loading="lazy"
+                                            alt="Cotton Sarees">
+                                        <div>Cotton Sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Georgette Sarees.webp">
+                                        <img src="\static/mobil categorys/Georgette Sarees.webp" loading="lazy"
+                                            alt="Georgette Sarees">
+                                        <div>Georgette Sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/chiffon sarees.webp">
+                                        <img src="\static/mobil categorys/chiffon sarees.webp" loading="lazy"
+                                            alt="Chiffon Sarees">
+                                        <div>Chiffon Sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/heavy work sarees.webp">
+                                        <img src="\static/mobil categorys/heavy work sarees.webp" loading="lazy"
+                                            alt="Heavy Work Sarees">
+                                        <div>Heavy Work Sarees</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/net sarees.webp">
+                                        <img src="\static/mobil categorys/net sarees.webp" loading="lazy"
+                                            alt="net Sarees">
+                                        <div>net Sarees</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Kurtis</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Kurtis.webp">
+                                        <img src="\static/mobil categorys/All Kurtis.webp" loading="lazy"
+                                            alt="All Kurtis">
+                                        <div>All Kurtis</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Anarkali Kurtis.webp">
+                                        <img src="\static/mobil categorys/Anarkali Kurtis.webp" loading="lazy"
+                                            alt="Anarkali Kurtis">
+                                        <div>Anarkali Kurtis</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Rayon Kurtis.webp">
+                                        <img src="\static/mobil categorys/Rayon Kurtis.webp" loading="lazy"
+                                            alt="Rayon Kurtis">
+                                        <div>Rayon Kurtis</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cotton Kurtis.webp">
+                                        <img src="\static/mobil categorys/Cotton Kurtis.webp" loading="lazy"
+                                            alt="Cotton Kurtis">
+                                        <div>Cotton Kurtis</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Chikankari Kurtis.webp">
+                                        <img src="\static/mobil categorys/Chikankari Kurtis.webp" loading="lazy"
+                                            alt="Chikankari Kurtis">
+                                        <div>Chikankari Kurtis</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Kurta Sets</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Kurta Sets.webp">
+                                        <img src="\static/mobil categorys/All Kurta Sets.webp" loading="lazy"
+                                            alt="All Kurta Sets">
+                                        <div>All Kurta Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Kurta Palazzo Sets.webp">
+                                        <img src="\static/mobil categorys/Kurta Palazzo Sets.webp" loading="lazy"
+                                            alt="Kurta Palazzo Sets">
+                                        <div>Kurta Palazzo Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Rayon Kurta Sets.webp">
+                                        <img src="\static/mobil categorys/Rayon Kurta Sets.webp" loading="lazy"
+                                            alt="Rayon Kurta Sets">
+                                        <div>Rayon Kurta Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Kurta Pant Sets.webp">
+                                        <img src="\static/mobil categorys/Kurta Pant Sets.webp" loading="lazy"
+                                            alt="Kurta Pant Sets">
+                                        <div>Kurta Pant Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cotton Kurta Sets.webp">
+                                        <img src="\static/mobil categorys/Cotton Kurta Sets.webp" loading="lazy"
+                                            alt="Cotton Kurta Sets">
+                                        <div>Cotton Kurta Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sharara Sets.webp">
+                                        <img src="\static/mobil categorys/Sharara Sets.webp" loading="lazy"
+                                            alt="Sharara Sets">
+                                        <div>Sharara Sets</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Dupatta Sets</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cotton Sets.webp">
+                                        <img src="\static/mobil categorys/Cotton Sets.webp" loading="lazy"
+                                            alt="Cotton Sets">
+                                        <div>Cotton Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Rayon Sets.webp">
+                                        <img src="\static/mobil categorys/Rayon Sets.webp" loading="lazy"
+                                            alt="Rayon Sets">
+                                        <div>Rayon Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Printed Sets.webp">
+                                        <img src="\static/mobil categorys/Printed Sets.webp" loading="lazy"
+                                            alt="Printed Sets">
+                                        <div>Printed Sets</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Suits & Dress Material</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Suits & Dress Material.webp">
+                                        <img src="\static/mobil categorys/All Suits & Dress Material.webp" loading="lazy"
+                                            alt="All Suits & Dress Material">
+                                        <div>All Suits & Dress Material</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cotton Suits.webp">
+                                        <img src="\static/mobil categorys/Cotton Suits.webp" loading="lazy"
+                                            alt="Cotton Suits">
+                                        <div>Cotton Suits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Embroidered Suits.webp">
+                                        <img src="\static/mobil categorys/Embroidered Suits.webp" loading="lazy"
+                                            alt="Embroidered Suits">
+                                        <div>Embroidered Suits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Crepe Suits.webp">
+                                        <img src="\static/mobil categorys/Crepe Suits.webp" loading="lazy"
+                                            alt="Crepe Suits">
+                                        <div>Crepe Suits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Silk Suits.webp">
+                                        <img src="\static/mobil categorys/Silk Suits.webp" loading="lazy"
+                                            alt="Silk Suits">
+                                        <div>Silk Suits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Patiala Suits.webp">
+                                        <img src="\static/mobil categorys/Patiala Suits.webp" loading="lazy"
+                                            alt="Patiala Suits">
+                                        <div>Patiala Suits</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Lehengas</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Lehenga Cholis.webp">
+                                        <img src="\static/mobil categorys/Lehenga Cholis.webp" loading="lazy"
+                                            alt="Lehenga Cholis">
+                                        <div>Lehenga Cholis</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Net Lehenga.webp">
+                                        <img src="\static/mobil categorys/Net Lehenga.webp" loading="lazy"
+                                            alt="Net Lehenga">
+                                        <div>Net Lehenga</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bridal Lehenga.webp">
+                                        <img src="\static/mobil categorys/Bridal Lehenga.webp" loading="lazy"
+                                            alt="Bridal Lehenga">
+                                        <div>Bridal Lehenga</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Other Ethnic</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Blouses.webp">
+                                        <img src="\static/mobil categorys/Blouses.webp" loading="lazy" alt="Blouses">
+                                        <div>Blouses</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dupattas.webp">
+                                        <img src="\static/mobil categorys/Dupattas.webp" loading="lazy" alt="Dupattas">
+                                        <div>Dupattas</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Lehanga.webp">
+                                        <img src="\static/mobil categorys/Lehanga.webp" loading="lazy" alt="Lehanga">
+                                        <div>Lehanga</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Gown.webp">
+                                        <img src="\static/mobil categorys/Gown.webp" loading="lazy" alt="Gown">
+                                        <div>Gown</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Skirts & Bottomwear.webp">
+                                        <img src="\static/mobil categorys/Skirts & Bottomwear.webp" loading="lazy"
+                                            alt="Skirts & Bottomwear">
+                                        <div>Skirts & Bottomwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Islamic Fashion.webp">
+                                        <img src="\static/mobil categorys/Islamic Fashion.webp" loading="lazy"
+                                            alt="Islamic Fashion">
+                                        <div>Islamic Fashion</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Petticoats.webp">
+                                        <img src="\static/mobil categorys/Petticoats.webp" loading="lazy"
+                                            alt="Petticoats">
+                                        <div>Petticoats</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Women-Western">
+                            <div class="product-title">Women Western</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Topwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Topwear.webp">
+                                        <img src="\static/mobil categorys/All Topwear.webp" loading="lazy"
+                                            alt="All Topwear">
+                                        <div>All Topwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Tops.webp">
+                                        <img src="\static/mobil categorys/Tops.webp" loading="lazy" alt="Tops">
+                                        <div>Tops</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dresses.webp">
+                                        <img src="\static/mobil categorys/Dresses.webp" loading="lazy" alt="Dresses">
+                                        <div>Dresses</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/T-shirts.webp">
+                                        <img src="\static/mobil categorys/T-shirts.webp" loading="lazy" alt="T-shirts">
+                                        <div>T-shirts</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Jumpsuits.webp">
+                                        <img src="\static/mobil categorys/Jumpsuits.webp" loading="lazy" alt="Jumpsuits">
+                                        <div>Jumpsuits</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Bottomwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Bottomwear.webp">
+                                        <img src="\static/mobil categorys/All Bottomwear.webp" loading="lazy"
+                                            alt="All Bottomwear">
+                                        <div>All Bottomwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Jeans & Jeggings.webp">
+                                        <img src="\static/mobil categorys/Jeans & Jeggings.webp" loading="lazy"
+                                            alt="Jeans & Jeggings">
+                                        <div>Jeans & Jeggings</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Trousers & Pants.webp">
+                                        <img src="\static/mobil categorys/Trousers & Pants.webp" loading="lazy"
+                                            alt="Trousers & Pants">
+                                        <div>Trousers & Pants</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Palazzos.webp">
+                                        <img src="\static/mobil categorys/Palazzos.webp" loading="lazy" alt="Palazzos">
+                                        <div>Palazzos</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Shorts.webp">
+                                        <img src="\static/mobil categorys/Shorts.webp" loading="lazy" alt="Shorts">
+                                        <div>Shorts</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Skirts.webp">
+                                        <img src="\static/mobil categorys/Skirts.webp" loading="lazy" alt="Skirts">
+                                        <div>Skirts</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Innerwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bra.webp">
+                                        <img src="\static/mobil categorys/Bra.webp" loading="lazy" alt="Bra">
+                                        <div>Bra</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Women Innerwear.webp">
+                                        <img src="\static/mobil categorys/Women Innerwear.webp" loading="lazy"
+                                            alt="Women Innerwear">
+                                        <div>Women Innerwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Briefs.webp">
+                                        <img src="\static/mobil categorys/Briefs.webp" loading="lazy" alt="Briefs">
+                                        <div>Briefs</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Sleepwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Nightsuits.webp">
+                                        <img src="\static/mobil categorys/Nightsuits.webp" loading="lazy"
+                                            alt="Nightsuits">
+                                        <div>Nightsuits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Women Nightdress.webp">
+                                        <img src="\static/mobil categorys/Women Nightdress.webp" loading="lazy"
+                                            alt="Women Nightdress">
+                                        <div>Women Nightdress</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Maternity Wear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Maternity & Feedingwear.webp">
+                                        <img src="\static/mobil categorys/All Maternity & Feedingwear.webp"
+                                            loading="lazy" alt="All Maternity & Feedingwear">
+                                        <div>All Maternity & Feedingwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Maternity Kurtis & Dresses.webp">
+                                        <img src="\static/mobil categorys/Maternity Kurtis & Dresses.webp" loading="lazy"
+                                            alt="Maternity Kurtis & Dresses">
+                                        <div>Maternity Kurtis & Dresses</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Sports Wear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Women Sportwear.webp">
+                                        <img src="\static/mobil categorys/All Women Sportwear.webp" loading="lazy"
+                                            alt="All Women Sportwear">
+                                        <div>All Women Sportwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sports Bra.webp">
+                                        <img src="\static/mobil categorys/Sports Bra.webp" loading="lazy"
+                                            alt="Sports Bra">
+                                        <div>Sports Bra</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Men">
+                            <div class="product-title">Men</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Top Wear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Top Wear.webp">
+                                        <img src="\static/mobil categorys/All Top Wear.webp" loading="lazy"
+                                            alt="All Top Wear">
+                                        <div>All Top Wear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Tshirts.webp">
+                                        <img src="\static/mobil categorys/Tshirts.webp" loading="lazy" alt="Tshirts">
+                                        <div>Tshirts</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Shirts.webp">
+                                        <img src="\static/mobil categorys/Shirts.webp" loading="lazy" alt="Shirts">
+                                        <div>Shirts</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Winter Wear.webp">
+                                        <img src="\static/mobil categorys/Winter Wear.webp" loading="lazy"
+                                            alt="Winter Wear">
+                                        <div>Winter Wear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Jackets.webp">
+                                        <img src="\static/mobil categorys/Jackets.webp" loading="lazy" alt="Jackets">
+                                        <div>Jackets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sweater and Sweatshirts.webp">
+                                        <img src="\static/mobil categorys/Sweater and Sweatshirts.webp" loading="lazy"
+                                            alt="Sweater and Sweatshirts">
+                                        <div>Sweater and Sweatshirts</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Bottom Wear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Track Pants.webp">
+                                        <img src="\static/mobil categorys/Track Pants.webp" loading="lazy"
+                                            alt="Track Pants">
+                                        <div>Track Pants</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Jeans.webp">
+                                        <img src="\static/mobil categorys/Jeans.webp" loading="lazy" alt="Jeans">
+                                        <div>Jeans</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Trousers.webp">
+                                        <img src="\static/mobil categorys/Trousers.webp" loading="lazy" alt="Trousers">
+                                        <div>Trousers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Short.webp">
+                                        <img src="\static/mobil categorys/Short.webp" loading="lazy" alt="Shorts">
+                                        <div>Shorts</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dhotis, Mundus & Lungis.webp">
+                                        <img src="\static/mobil categorys/Dhotis, Mundus & Lungis.webp" loading="lazy"
+                                            alt="Dhotis, Mundus & Lungis">
+                                        <div>Dhotis, Mundus & Lungis</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Men Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Men Accessories.webp">
+                                        <img src="\static/mobil categorys/All Men Accessories.webp" loading="lazy"
+                                            alt="All Men Accessories">
+                                        <div>All Men Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Watches.webp">
+                                        <img src="\static/mobil categorys/Watches.webp" loading="lazy" alt="Watches">
+                                        <div>Watches</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Belts & Wallets.webp">
+                                        <img src="\static/mobil categorys/Belts & Wallets.webp" loading="lazy"
+                                            alt="Belts & Wallets">
+                                        <div>Belts & Wallets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Jewellery.webp">
+                                        <img src="\static/mobil categorys/Jewellery.webp" loading="lazy" alt="Jewellery">
+                                        <div>Jewellery</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sunglasses.webp">
+                                        <img src="\static/mobil categorys/Sunglasses.webp" loading="lazy"
+                                            alt="Sunglasses">
+                                        <div>Sunglasses</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bags.webp">
+                                        <img src="\static/mobil categorys/Bags.webp" loading="lazy" alt="Bags">
+                                        <div>Bags</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Men Footwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Men Footwear.webp">
+                                        <img src="\static/mobil categorys/Men Footwear.webp" loading="lazy"
+                                            alt="Men Footwear">
+                                        <div>Men Footwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Casual Shoes.webp">
+                                        <img src="\static/mobil categorys/Casual Shoes.webp" loading="lazy"
+                                            alt="Casual Shoes">
+                                        <div>Casual Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sports Shoes.webp">
+                                        <img src="\static/mobil categorys/Sports Shoes.webp" loading="lazy"
+                                            alt="Sports Shoes">
+                                        <div>Sports Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Flip Flops & Sandals.webp">
+                                        <img src="\static/mobil categorys/Flip Flops & Sandals.webp" loading="lazy"
+                                            alt="Flip Flops & Sandals">
+                                        <div>Flip Flops & Sandals</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Formal Shoes.webp">
+                                        <img src="\static/mobil categorys/Formal Shoes.webp" loading="lazy"
+                                            alt="Formal Shoes">
+                                        <div>Formal Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Loafers.webp">
+                                        <img src="\static/mobil categorys/Loafers.webp" loading="lazy" alt="Loafers">
+                                        <div>Loafers</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Ethnic Wear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Kurtas Sets.webp">
+                                        <img src="\static/mobil categorys/Kurtas Sets.webp" loading="lazy"
+                                            alt="Kurtas Sets">
+                                        <div>Kurtas Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Ethnic Jackets.webp">
+                                        <img src="\static/mobil categorys/Ethnic Jackets.webp" loading="lazy"
+                                            alt="Ethnic Jackets">
+                                        <div>Ethnic Jackets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bottomwear.webp">
+                                        <img src="\static/mobil categorys/Bottomwear.webp" loading="lazy"
+                                            alt="Bottomwear">
+                                        <div>Bottomwear</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Inner & Sleep Wear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Inner & Sleep Wear.webp">
+                                        <img src="\static/mobil categorys/All Inner & Sleep Wear.webp" loading="lazy"
+                                            alt="All Inner & Sleep Wear">
+                                        <div>All Inner & Sleep Wear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Boxers.webp">
+                                        <img src="\static/mobil categorys/Boxers.webp" loading="lazy" alt="Boxers">
+                                        <div>Boxers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Underwears.webp">
+                                        <img src="\static/mobil categorys/Underwears.webp" loading="lazy" alt="Tops">
+                                        <div>Tops</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Kids">
+                            <div class="product-title">Kids</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Boys & Girls 2+ Years</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dresse.webp">
+                                        <img src="\static/mobil categorys/Dresse.webp" loading="lazy" alt="Dresses">
+                                        <div>Dresses</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Boys Sets.webp">
+                                        <img src="\static/mobil categorys/Boys Sets.webp" loading="lazy" alt="Boys Sets">
+                                        <div>Boys Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Girls Sets.webp">
+                                        <img src="\static/mobil categorys/Girls Sets.webp" loading="lazy"
+                                            alt="Girls Sets">
+                                        <div>Girls Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Ethnicwear.webp">
+                                        <img src="\static/mobil categorys/Ethnicwear.webp" loading="lazy"
+                                            alt="Ethnicwear">
+                                        <div>Ethnicwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Nightwear.webp">
+                                        <img src="\static/mobil categorys/Nightwear.webp" loading="lazy" alt="Nightwear">
+                                        <div>Nightwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Winter Wear.webp">
+                                        <img src="\static/mobil categorys/Winter Wear.webp" loading="lazy"
+                                            alt="Winter Wear">
+                                        <div>Winter Wear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Top Wear.webp">
+                                        <img src="\static/mobil categorys/Top Wear.webp" loading="lazy" alt="Top Wear">
+                                        <div>Top Wear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bottomwear.webp">
+                                        <img src="\static/mobil categorys/Bottomwear.webp" loading="lazy"
+                                            alt="Bottomwear">
+                                        <div>Bottomwear</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Infant 0-2 Years</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Rompers.webp">
+                                        <img src="\static/mobil categorys/Rompers.webp" loading="lazy" alt="Rompers">
+                                        <div>Rompers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Baby Sets.webp">
+                                        <img src="\static/mobil categorys/Baby Sets.webp" loading="lazy" alt="Baby Sets">
+                                        <div>Baby Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Ethnicwear.webp">
+                                        <img src="\static/mobil categorys/Ethnicwear.webp" loading="lazy"
+                                            alt="Ethnicwear">
+                                        <div>Ethnicwear</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Toys & Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Soft Toys.webp">
+                                        <img src="\static/mobil categorys/Soft Toys.webp" loading="lazy" alt="Soft Toys">
+                                        <div>Soft Toys</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Footwear.webp">
+                                        <img src="\static/mobil categorys/Footwear.webp" loading="lazy" alt="Footwear">
+                                        <div>Footwear</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Stationery.webp">
+                                        <img src="\static/mobil categorys/Stationery.webp" loading="lazy"
+                                            alt="Stationery">
+                                        <div>Stationery</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Watche.webp">
+                                        <img src="\static/mobil categorys/Watche.webp" loading="lazy" alt="Watches">
+                                        <div>Watches</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bags & Backpacks.webp">
+                                        <img src="\static/mobil categorys/Bags & Backpacks.webp" loading="lazy"
+                                            alt="Bags & Backpacks">
+                                        <div>Bags & Backpacks</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Baby Care</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Baby Bedding & Accessories.webp">
+                                        <img src="\static/mobil categorys/Baby Bedding & Accessories.webp" loading="lazy"
+                                            alt="Baby Bedding & Accessories">
+                                        <div>Baby Bedding & Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Baby Care.webp">
+                                        <img src="\static/mobil categorys/All Baby Care.webp" loading="lazy"
+                                            alt="All Baby Care">
+                                        <div>All Baby Care</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Newborn Care.webp">
+                                        <img src="\static/mobil categorys/Newborn Care.webp" loading="lazy"
+                                            alt="Newborn Care">
+                                        <div>Newborn Care</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Home-Kitchen">
+                            <div class="product-title">Home & Kitchen</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Kitchen & Appliances</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/View All.webp">
+                                        <img src="\static/mobil categorys/View All.webp" loading="lazy" alt="View All">
+                                        <div>View All</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Kitchen Tools.webp">
+                                        <img src="\static/mobil categorys/Kitchen Tools.webp" loading="lazy"
+                                            alt="Kitchen Tools">
+                                        <div>Kitchen Tools</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Storage & Organizers.webp">
+                                        <img src="\static/mobil categorys/Storage & Organizers.webp" loading="lazy"
+                                            alt="Storage & Organizers">
+                                        <div>Storage & Organizers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Appliances.webp">
+                                        <img src="\static/mobil categorys/Appliances.webp" loading="lazy"
+                                            alt="Appliances">
+                                        <div>Appliances</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cookware.webp">
+                                        <img src="\static/mobil categorys/Cookware.webp" loading="lazy" alt="Cookware">
+                                        <div>Cookware</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dinnerware.webp">
+                                        <img src="\static/mobil categorys/Dinnerware.webp" loading="lazy"
+                                            alt="Dinnerware">
+                                        <div>Dinnerware</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bakeware.webp">
+                                        <img src="\static/mobil categorys/Bakeware.webp" loading="lazy" alt="Bakeware">
+                                        <div>Bakeware</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Glasses & Barware.webp">
+                                        <img src="\static/mobil categorys/Glasses & Barware.webp" loading="lazy"
+                                            alt="Glasses & Barware">
+                                        <div>Glasses & Barware</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Home Furnishing</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bedsheets.webp">
+                                        <img src="\static/mobil categorys/Bedsheets.webp" loading="lazy" alt="Bedsheets">
+                                        <div>Bedsheets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Curtains & Sheers.webp">
+                                        <img src="\static/mobil categorys/Curtains & Sheers.webp" loading="lazy"
+                                            alt="Curtains & Sheers">
+                                        <div>Curtains & Sheers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pillows, Cushions & Covers.webp">
+                                        <img src="\static/mobil categorys/Pillows, Cushions & Covers.webp" loading="lazy"
+                                            alt="Pillows, Cushions & Covers">
+                                        <div>Pillows, Cushions & Covers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cushions & Cushion Covers.webp">
+                                        <img src="\static/mobil categorys/Cushions & Cushion Covers.webp" loading="lazy"
+                                            alt="Cushions & Cushion Covers">
+                                        <div>Cushions & Cushion Covers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Carpets & Doormats.webp">
+                                        <img src="\static/mobil categorys/Carpets & Doormats.webp" loading="lazy"
+                                            alt="Carpets & Doormats">
+                                        <div>Carpets & Doormats</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mattress Protectors.webp">
+                                        <img src="\static/mobil categorys/Mattress Protectors.webp" loading="lazy"
+                                            alt="Mattress Protectors">
+                                        <div>Mattress Protectors</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sofa & Diwan Sets.webp">
+                                        <img src="\static/mobil categorys/Sofa & Diwan Sets.webp" loading="lazy"
+                                            alt="Sofa & Diwan Sets">
+                                        <div>Sofa & Diwan Sets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Towels & Bathrobes.webp">
+                                        <img src="\static/mobil categorys/Towels & Bathrobes.webp" loading="lazy"
+                                            alt="Towels & Bathrobes">
+                                        <div>Towels & Bathrobes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Blankets, Quilts & Dohars.webp">
+                                        <img src="\static/mobil categorys/Blankets, Quilts & Dohars.webp" loading="lazy"
+                                            alt="Blankets, Quilts & Dohars">
+                                        <div>Blankets, Quilts & Dohars</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Home Decor</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Home Decor.webp">
+                                        <img src="\static/mobil categorys/All Home Decor.webp" loading="lazy"
+                                            alt="All Home Decor">
+                                        <div>All Home Decor</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Appliances Covers.webp">
+                                        <img src="\static/mobil categorys/Appliances Covers.webp" loading="lazy"
+                                            alt="Appliances Covers">
+                                        <div>Appliances Covers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Clocks.webp">
+                                        <img src="\static/mobil categorys/Clocks.webp" loading="lazy" alt="Clocks">
+                                        <div>Clocks</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Storage & Organizers.webp">
+                                        <img src="\static/mobil categorys/Storage & Organizers.webp" loading="lazy"
+                                            alt="Storage & Organizers">
+                                        <div>Storage & Organizers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Showpieces.webp">
+                                        <img src="\static/mobil categorys/Showpieces.webp" loading="lazy"
+                                            alt="Showpieces">
+                                        <div>Showpieces</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Paintings & Photoframes.webp">
+                                        <img src="\static/mobil categorys/Paintings & Photoframes.webp" loading="lazy"
+                                            alt="Paintings & Photoframes">
+                                        <div>Paintings & Photoframes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Stickers & Wallpapers.webp">
+                                        <img src="\static/mobil categorys/Stickers & Wallpapers.webp" loading="lazy"
+                                            alt="Stickers & Wallpapers">
+                                        <div>Stickers & Wallpapers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Lights.webp">
+                                        <img src="\static/mobil categorys/Lights.webp" loading="lazy" alt="Lights">
+                                        <div>Lights</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Gifts & Mugs.webp">
+                                        <img src="\static/mobil categorys/Gifts & Mugs.webp" loading="lazy"
+                                            alt="Gifts & Mugs">
+                                        <div>Gifts & Mugs</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Kitchen & Dining</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Kitchen Storage.webp">
+                                        <img src="\static/mobil categorys/Kitchen Storage.webp" loading="lazy"
+                                            alt="Kitchen Storage">
+                                        <div>Kitchen Storage</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cookware & Bakeware.webp">
+                                        <img src="\static/mobil categorys/Cookware & Bakeware.webp" loading="lazy"
+                                            alt="Cookware & Bakeware">
+                                        <div>Cookware & Bakeware</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Home Improvement</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Home Essentials.webp">
+                                        <img src="\static/mobil categorys/All Home Essentials.webp" loading="lazy"
+                                            alt="All Home Essentials">
+                                        <div>All Home Essentials</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cleaning Supplies.webp">
+                                        <img src="\static/mobil categorys/Cleaning Supplies.webp" loading="lazy"
+                                            alt="Cleaning Supplies">
+                                        <div>Cleaning Supplies</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Gardening.webp">
+                                        <img src="\static/mobil categorys/Gardening.webp" loading="lazy" alt="Gardening">
+                                        <div>Gardening</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bathroom Accessories.webp">
+                                        <img src="\static/mobil categorys/Bathroom Accessories.webp" loading="lazy"
+                                            alt="Bathroom Accessories">
+                                        <div>Bathroom Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Insect Protection.webp">
+                                        <img src="\static/mobil categorys/Insect Protection.webp" loading="lazy"
+                                            alt="Insect Protection">
+                                        <div>Insect Protection</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Home Tools.webp">
+                                        <img src="\static/mobil categorys/Home Tools.webp" loading="lazy"
+                                            alt="Home Tools">
+                                        <div>Home Tools</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Beauty-Health">
+                            <div class="product-title">Beauty & Health</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Make up</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Face.webp">
+                                        <img src="\static/mobil categorys/Face.webp" loading="lazy" alt="Face">
+                                        <div>Face</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Eyes.webp">
+                                        <img src="\static/mobil categorys/Eyes.webp" loading="lazy" alt="Eyes">
+                                        <div>Eyes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Lips.webp">
+                                        <img src="\static/mobil categorys/Lips.webp" loading="lazy" alt="Lips">
+                                        <div>Lips</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Nails.webp">
+                                        <img src="\static/mobil categorys/Nails.webp" loading="lazy" alt="Nails">
+                                        <div>Nails</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Make up Kits.webp">
+                                        <img src="\static/mobil categorys/Make up Kits.webp" loading="lazy"
+                                            alt="Make up Kits">
+                                        <div>Make up Kits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Appliances.webp">
+                                        <img src="\static/mobil categorys/Appliances.webp" loading="lazy"
+                                            alt="Appliances">
+                                        <div>Appliances</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Brushes & Tools.webp">
+                                        <img src="\static/mobil categorys/Brushes & Tools.webp" loading="lazy"
+                                            alt="Brushes & Tools">
+                                        <div>Brushes & Tools</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Makeup Accessories.webp">
+                                        <img src="\static/mobil categorys/Makeup Accessories.webp" loading="lazy"
+                                            alt="Makeup Accessories">
+                                        <div>Makeup Accessories</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Skincare</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/View All.webp">
+                                        <img src="\static/mobil categorys/View All.webp" loading="lazy" alt="View All">
+                                        <div>View All</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Face Masks & Peels.webp">
+                                        <img src="\static/mobil categorys/Face Masks & Peels.webp" loading="lazy"
+                                            alt="Face Masks & Peels">
+                                        <div>Face Masks & Peels</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Facecare.webp">
+                                        <img src="\static/mobil categorys/Facecare.webp" loading="lazy" alt="Facecare">
+                                        <div>Facecare</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Haircare.webp">
+                                        <img src="\static/mobil categorys/Haircare.webp" loading="lazy" alt="Haircare">
+                                        <div>Haircare</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bath & Shower.webp">
+                                        <img src="\static/mobil categorys/Bath & Shower.webp" loading="lazy"
+                                            alt="Bath & Shower">
+                                        <div>Bath & Shower</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Baby & Mom</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Baby Personal Care.webp">
+                                        <img src="\static/mobil categorys/Baby Personal Care.webp" loading="lazy"
+                                            alt="Baby Personal Care">
+                                        <div>Baby Personal Care</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mom Care.webp">
+                                        <img src="\static/mobil categorys/Mom Care.webp" loading="lazy" alt="Mom Care">
+                                        <div>Mom Care</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Mens Care</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Beard Care.webp">
+                                        <img src="\static/mobil categorys/Beard Care.webp" loading="lazy"
+                                            alt="Beard Care">
+                                        <div>Beard Care</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Fragrances for Men.webp">
+                                        <img src="\static/mobil categorys/Fragrances for Men.webp" loading="lazy"
+                                            alt="Fragrances for Men">
+                                        <div>Fragrances for Men</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Healthcare</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Ear Buds & Cleaners.webp">
+                                        <img src="\static/mobil categorys/Ear Buds & Cleaners.webp" loading="lazy"
+                                            alt="Ear Buds & Cleaners">
+                                        <div>Ear Buds & Cleaners</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Condoms.webp">
+                                        <img src="\static/mobil categorys/Condoms.webp" loading="lazy" alt="Condoms">
+                                        <div>Condoms</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sanitary Pads.webp">
+                                        <img src="\static/mobil categorys/Sanitary Pads.webp" loading="lazy"
+                                            alt="Sanitary Pads">
+                                        <div>Sanitary Pads</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dental Care.webp">
+                                        <img src="\static/mobil categorys/Dental Care.webp" loading="lazy"
+                                            alt="Dental Care">
+                                        <div>Dental Care</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Weight Management.webp">
+                                        <img src="\static/mobil categorys/Weight Management.webp" loading="lazy"
+                                            alt="Weight Management">
+                                        <div>Weight Management</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Health Monitors.webp">
+                                        <img src="\static/mobil categorys/Health Monitors.webp" loading="lazy"
+                                            alt="Health Monitors">
+                                        <div>Health Monitors</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Jewellery-Accessories">
+                            <div class="product-title">Jewellery & Accessories</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Jewellery</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Jewellery.webp">
+                                        <img src="\static/mobil categorys/All Jewellery.webp" loading="lazy"
+                                            alt="All Jewellery">
+                                        <div>All Jewellery</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Jewellery Set.webp">
+                                        <img src="\static/mobil categorys/Jewellery Set.webp" loading="lazy"
+                                            alt="Jewellery Set">
+                                        <div>Jewellery Set</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Earrings & Studs.webp">
+                                        <img src="\static/mobil categorys/Earrings & Studs.webp" loading="lazy"
+                                            alt="Earrings & Studs">
+                                        <div>Earrings & Studs</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mangalsutras.webp">
+                                        <img src="\static/mobil categorys/Mangalsutras.webp" loading="lazy"
+                                            alt="Mangalsutras">
+                                        <div>Mangalsutras</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bangles.webp">
+                                        <img src="\static/mobil categorys/Bangles.webp" loading="lazy" alt="Tops">
+                                        <div>Tops</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Necklaces.webp">
+                                        <img src="\static/mobil categorys/Necklaces.webp" loading="lazy" alt="Necklaces">
+                                        <div>Necklaces</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Rings.webp">
+                                        <img src="\static/mobil categorys/Rings.webp" loading="lazy" alt="Tops">
+                                        <div>Tops</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Kamarbandh & Maangtika.webp">
+                                        <img src="\static/mobil categorys/Kamarbandh & Maangtika.webp" loading="lazy"
+                                            alt="Kamarbandh & Maangtika">
+                                        <div>Kamarbandh & Maangtika</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Anklets.webp">
+                                        <img src="\static/mobil categorys/Anklets.webp" loading="lazy" alt="Anklets">
+                                        <div>Anklets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Men Jewellery.webp">
+                                        <img src="\static/mobil categorys/Men Jewellery.webp" loading="lazy"
+                                            alt="Men Jewellery">
+                                        <div>Men Jewellery</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Oxidised.webp">
+                                        <img src="\static/mobil categorys/Oxidised.webp" loading="lazy" alt="Oxidised">
+                                        <div>Oxidised</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Men Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/View All.webp">
+                                        <img src="\static/mobil categorys/View All.webp" loading="lazy" alt="View All">
+                                        <div>View All</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Watches.webp">
+                                        <img src="\static/mobil categorys/Watches.webp" loading="lazy" alt="Watches">
+                                        <div>Men Watches</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sunglasses.webp">
+                                        <img src="\static/mobil categorys/Sunglasses.webp" loading="lazy"
+                                            alt="Sunglasses">
+                                        <div>Men Sunglasses</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Belts & Wallets.webp">
+                                        <img src="\static/mobil categorys/Belts & Wallets.webp" loading="lazy"
+                                            alt="Belts & Wallets">
+                                        <div>Belts & Wallets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Caps & Hats.webp">
+                                        <img src="\static/mobil categorys/Caps & Hats.webp" loading="lazy" alt="Tops">
+                                        <div>Men Tops</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Women Accessory</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Watchesg.webp">
+                                        <img src="\static/mobil categorys/Watchesg.webp" loading="lazy" alt="Watches">
+                                        <div>Women Watches</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Hair Accessories.webp">
+                                        <img src="\static/mobil categorys/Hair Accessories.webp" loading="lazy"
+                                            alt="Hair Accessories">
+                                        <div>Hair Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sunglassesg.webp">
+                                        <img src="\static/mobil categorys/Sunglassesg.webp" loading="lazy"
+                                            alt="Sunglasses">
+                                        <div>Women Sunglasses</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Socks.webp">
+                                        <img src="\static/mobil categorys/Socks.webp" loading="lazy" alt="Tops">
+                                        <div>Women Tops</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Scarves and Stoles.webp">
+                                        <img src="\static/mobil categorys/Scarves and Stoles.webp" loading="lazy"
+                                            alt="Scarves and Stoles">
+                                        <div>Scarves and Stoles</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Bags-Footwear">
+                            <div class="product-title">Bags & Footwear</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Women Bags</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Women Bags.webp">
+                                        <img src="\static/mobil categorys/All Women Bags.webp" loading="lazy"
+                                            alt="All Women Bags">
+                                        <div>All Women Bags</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Handbags.webp">
+                                        <img src="\static/mobil categorys/Handbags.webp" loading="lazy" alt="Handbags">
+                                        <div>Handbags</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Clutches.webp">
+                                        <img src="\static/mobil categorys/Clutches.webp" loading="lazy" alt="Clutches">
+                                        <div>Clutches</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Slingbags.webp">
+                                        <img src="\static/mobil categorys/Slingbags.webp" loading="lazy" alt="Slingbags">
+                                        <div>Slingbags</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Wallets.webp">
+                                        <img src="\static/mobil categorys/Wallets.webp" loading="lazy" alt="Wallets">
+                                        <div>Wallets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Backpacks.webp">
+                                        <img src="\static/mobil categorys/Backpacks.webp" loading="lazy" alt="Backpacks">
+                                        <div>Backpacks</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Men Bags</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Men Wallets.webp">
+                                        <img src="\static/mobil categorys/Men Wallets.webp" loading="lazy"
+                                            alt="Men Wallets">
+                                        <div>Men Wallets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Crossbody Bags & Sling Bags.webp">
+                                        <img src="\static/mobil categorys/Crossbody Bags & Sling Bags.webp"
+                                            loading="lazy" alt="Crossbody Bags & Sling Bags">
+                                        <div>Crossbody Bags & Sling Bags</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Waist Bags.webp">
+                                        <img src="\static/mobil categorys/Waist Bags.webp" loading="lazy"
+                                            alt="Waist Bags">
+                                        <div>Waist Bags</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Travel Bags, Luggage and Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/View All.webp">
+                                        <img src="\static/mobil categorys/View All.webp" loading="lazy" alt="View All">
+                                        <div>View All</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Duffel & Trolley Bags.webp">
+                                        <img src="\static/mobil categorys/Duffel & Trolley Bags.webp" loading="lazy"
+                                            alt="Duffel & Trolley Bags">
+                                        <div>Duffel & Trolley Bags</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Men Footwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sports Shoes.webp">
+                                        <img src="\static/mobil categorys/Sports Shoes.webp" loading="lazy"
+                                            alt="Sports Shoes">
+                                        <div>Sports Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Casual Shoes.webp">
+                                        <img src="\static/mobil categorys/Casual Shoes.webp" loading="lazy"
+                                            alt="Casual Shoes">
+                                        <div>Casual Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Formal Shoes.webp">
+                                        <img src="\static/mobil categorys/Formal Shoes.webp" loading="lazy"
+                                            alt="Formal Shoes">
+                                        <div>Formal Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sandals.webp">
+                                        <img src="\static/mobil categorys/Sandals.webp" loading="lazy" alt="Sandals">
+                                        <div>Sandals</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Loafers.webp">
+                                        <img src="\static/mobil categorys/Loafers.webp" loading="lazy" alt="Loafers">
+                                        <div>Loafers</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Women Footwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Flats.webp">
+                                        <img src="\static/mobil categorys/Flats.webp" loading="lazy" alt="Flats">
+                                        <div>Flats</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bellies.webp">
+                                        <img src="\static/mobil categorys/Bellies.webp" loading="lazy" alt="Bellies">
+                                        <div>Bellies</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Heals and Sandals.webp">
+                                        <img src="\static/mobil categorys/Heals and Sandals.webp" loading="lazy"
+                                            alt="Heals and Sandals">
+                                        <div>Heals and Sandals</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Boots.webp">
+                                        <img src="\static/mobil categorys/Boots.webp" loading="lazy" alt="Boots">
+                                        <div>Boots</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Flipflops & Slippers.webp">
+                                        <img src="\static/mobil categorys/Flipflops & Slippers.webp" loading="lazy"
+                                            alt="Flipflops & Slippers">
+                                        <div>Flipflops & Slippers</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Kids Footwear</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Boys Shoes.webp">
+                                        <img src="\static/mobil categorys/Boys Shoes.webp" loading="lazy"
+                                            alt="Boys Shoes">
+                                        <div>Boys Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Girls Shoes.webp">
+                                        <img src="\static/mobil categorys/Girls Shoes.webp" loading="lazy"
+                                            alt="Girls Shoes">
+                                        <div>Girls Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Casual Shoe.webp">
+                                        <img src="\static/mobil categorys/Casual Shoe.webp" loading="lazy"
+                                            alt="Casual Shoes">
+                                        <div>Casual Shoes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Flipflops & Slippers.webp">
+                                        <img src="\static/mobil categorys/Flipflops & Slippers.webp" loading="lazy"
+                                            alt="Flipflops & Slippers">
+                                        <div>Flipflops & Slippers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sandals.webp">
+                                        <img src="\static/mobil categorys/Sandals.webp" loading="lazy" alt="Sandals">
+                                        <div>Sandals</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Electronics">
+                            <div class="product-title">Electronics</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Audio</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bluetooth Headphone & Earphones.webp">
+                                        <img src="\static/mobil categorys/Bluetooth Headphone & Earphones.webp"
+                                            loading="lazy" alt="Bluetooth Headphone & Earphones">
+                                        <div>Bluetooth Headphone & Earphones</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Wired Headphones & Earphones.webp">
+                                        <img src="\static/mobil categorys/Wired Headphones & Earphones.webp"
+                                            loading="lazy" alt="Wired Headphones & Earphones">
+                                        <div>Wired Headphones & Earphones</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Speakers.webp">
+                                        <img src="\static/mobil categorys/Speakers.webp" loading="lazy" alt="Speakers">
+                                        <div>Speakers</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Mobile & Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mobile & Accessories - View All.webp">
+                                        <img src="\static/mobil categorys/Mobile & Accessories - View All.webp"
+                                            loading="lazy" alt="Mobile & Accessories View All">
+                                        <div>Mobile & Accessories View All</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Smartwatches.webp">
+                                        <img src="\static/mobil categorys/Smartwatches.webp" loading="lazy"
+                                            alt="Smart watches">
+                                        <div>Smart watches</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mobile Holders.webp">
+                                        <img src="\static/mobil categorys/Mobile Holders.webp" loading="lazy"
+                                            alt="Mobile Holders">
+                                        <div>Mobile Holders</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Power Bank.webp">
+                                        <img src="\static/mobil categorys/Power Bank.webp" loading="lazy"
+                                            alt="Power Bank">
+                                        <div>Power Bank</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mobile cases and covers.webp">
+                                        <img src="\static/mobil categorys/Mobile cases and covers.webp" loading="lazy"
+                                            alt="Mobile cases and covers">
+                                        <div>Mobile cases and covers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Mobile Chargers.webp">
+                                        <img src="\static/mobil categorys/Mobile Chargers.webp" loading="lazy"
+                                            alt="Mobile Chargers.">
+                                        <div>Mobile Chargers.</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Smart Wearables</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/VR Box.webp">
+                                        <img src="\static/mobil categorys/VR Box.webp" loading="lazy" alt="VR Box">
+                                        <div>VR Box</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Tripod.webp">
+                                        <img src="\static/mobil categorys/Tripod.webp" loading="lazy" alt="Tripod">
+                                        <div>Tripod</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Microphone.webp">
+                                        <img src="\static/mobil categorys/Microphone.webp" loading="lazy"
+                                            alt="Microphone">
+                                        <div>Microphone</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Photo & Video Accessories.webp">
+                                        <img src="\static/mobil categorys/Photo & Video Accessories.webp" loading="lazy"
+                                            alt="Photo & Video Accessories">
+                                        <div>Photo & Video Accessories</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Sports-Fitness">
+                            <div class="product-title">Sports & Fitness</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Fitness</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Yoga.webp">
+                                        <img src="\static/mobil categorys/Yoga.webp" loading="lazy" alt="Yoga">
+                                        <div>Yoga</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Hand Grip Strengthener.webp">
+                                        <img src="\static/mobil categorys/Hand Grip Strengthener.webp" loading="lazy"
+                                            alt="Hand Grip Strengthener">
+                                        <div>Hand Grip Strengthener</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Abs Wheel Roller.webp">
+                                        <img src="\static/mobil categorys/Abs Wheel Roller.webp" loading="lazy"
+                                            alt="Abs Wheel Roller">
+                                        <div>Abs Wheel Roller</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Skipping Ropes.webp">
+                                        <img src="\static/mobil categorys/Skipping Ropes.webp" loading="lazy"
+                                            alt="Skipping Ropes">
+                                        <div>Skipping Ropes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Sweat Belts.webp">
+                                        <img src="\static/mobil categorys/Sweat Belts.webp" loading="lazy"
+                                            alt="Sweat Belts">
+                                        <div>Sweat Belts</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Sports</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bandminton.webp">
+                                        <img src="\static/mobil categorys/Bandminton.webp" loading="lazy"
+                                            alt="Bandminton">
+                                        <div>Bandminton</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Skating.webp">
+                                        <img src="\static/mobil categorys/Skating.webp" loading="lazy" alt="Skating">
+                                        <div>Skating</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Football.webp">
+                                        <img src="\static/mobil categorys/Football.webp" loading="lazy" alt="Football">
+                                        <div>Football</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Cricket.webp">
+                                        <img src="\static/mobil categorys/Cricket.webp" loading="lazy" alt="Cricket">
+                                        <div>Cricket</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Car-Motorbike">
+                            <div class="product-title">Car & Motorbike</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Car Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Car Covers.webp">
+                                        <img src="\static/mobil categorys/Car Covers.webp" loading="lazy"
+                                            alt="Car Covers">
+                                        <div>Car Covers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Interior Accessories.webp">
+                                        <img src="\static/mobil categorys/Interior Accessories.webp" loading="lazy"
+                                            alt="Interior Accessories">
+                                        <div>Interior Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Car Mobile Holders.webp">
+                                        <img src="\static/mobil categorys/Car Mobile Holders.webp" loading="lazy"
+                                            alt="Car Mobile Holders">
+                                        <div>Car Mobile Holders</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Car Repair Assistance.webp">
+                                        <img src="\static/mobil categorys/Car Repair Assistance.webp" loading="lazy"
+                                            alt="Car Repair Assistance">
+                                        <div>Car Repair Assistance</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Moterbike Accessories</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Helmets.webp">
+                                        <img src="\static/mobil categorys/Helmets.webp" loading="lazy" alt="Helmets">
+                                        <div>Helmets</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bike Accessories.webp">
+                                        <img src="\static/mobil categorys/Bike Accessories.webp" loading="lazy"
+                                            alt="Bike Accessories">
+                                        <div>Bike Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Bike LED Lights.webp">
+                                        <img src="\static/mobil categorys/Bike LED Lights.webp" loading="lazy"
+                                            alt="Bike LED Lights">
+                                        <div>Bike LED Lights</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Safety Gear & Clothing.webp">
+                                        <img src="\static/mobil categorys/Safety Gear & Clothing.webp" loading="lazy"
+                                            alt="Safety Gear & Clothing">
+                                        <div>Safety Gear & Clothing</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Office-Supplies-Stationery">
+                            <div class="product-title">Office Supplies & Stationery</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Office Supplies & Stationery</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Diaries & Notebooks.webp">
+                                        <img src="\static/mobil categorys/Diaries & Notebooks.webp" loading="lazy"
+                                            alt="Diaries & Notebooks">
+                                        <div>Diaries & Notebooks</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Adhesives & Tapes.webp">
+                                        <img src="\static/mobil categorys/Adhesives & Tapes.webp" loading="lazy"
+                                            alt="Adhesives & Tapes">
+                                        <div>Adhesives & Tapes</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Files & Desks Organizers.webp">
+                                        <img src="\static/mobil categorys/Files & Desks Organizers.webp" loading="lazy"
+                                            alt="Files & Desks Organizers">
+                                        <div>Files & Desks Organizers</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pens & Pencils.webp">
+                                        <img src="\static/mobil categorys/Pens & Pencils.webp" loading="lazy"
+                                            alt="Pens & Pencils">
+                                        <div>Pens & Pencils</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Paintings & Photoframes.webp">
+                                        <img src="\static/mobil categorys/Paintings & Photoframes.webp" loading="lazy"
+                                            alt="Paintings & Photoframes">
+                                        <div>Paintings & Photoframes</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Pet-Supplies">
+                            <div class="product-title">Pet Supplies</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Pet Supplies</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pet Toys.webp">
+                                        <img src="\static/mobil categorys/Pet Toys.webp" loading="lazy" alt="Pet Toys">
+                                        <div>Pet Toys</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pet Grooming.webp">
+                                        <img src="\static/mobil categorys/Pet Grooming.webp" loading="lazy"
+                                            alt="Pet Grooming">
+                                        <div>Pet Grooming</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pet Food.webp">
+                                        <img src="\static/mobil categorys/Pet Food.webp" loading="lazy" alt="Pet Food">
+                                        <div>Pet Food</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pet Clothing.webp">
+                                        <img src="\static/mobil categorys/Pet Clothing.webp" loading="lazy" alt="Pet Clothing">
+                                        <div>Pet Clothing</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Pet Health.webp">
+                                        <img src="\static/mobil categorys/Pet Health.webp" loading="lazy"
+                                            alt="Pet Health">
+                                        <div>Pet Health</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Food-Drinks">
+                            <div class="product-title">Food & Drinks</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Food & Drinks</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Dry Fruits.webp">
+                                        <img src="\static/mobil categorys/Dry Fruits.webp" loading="lazy"
+                                            alt="Dry Fruits">
+                                        <div>Dry Fruits</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Tea.webp">
+                                        <img src="\static/mobil categorys/Tea.webp" loading="lazy" alt="Tea">
+                                        <div>Tea</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Masalas.webp">
+                                        <img src="\static/mobil categorys/Masalas.webp" loading="lazy" alt="Masalas">
+                                        <div>Masalas</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Coffee.webp">
+                                        <img src="\static/mobil categorys/Coffee.webp" loading="lazy" alt="Coffee">
+                                        <div>Coffee</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Ready to Cook.webp">
+                                        <img src="\static/mobil categorys/Ready to Cook.webp" loading="lazy"
+                                            alt="Ready to Cook">
+                                        <div>Ready to Cook</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Musical-Instruments">
+                            <div class="product-title">Musical Instruments</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Musical Instruments</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/All Musical Instruments.webp">
+                                        <img src="\static/mobil categorys/All Musical Instruments.webp" loading="lazy"
+                                            alt="All Musical Instruments">
+                                        <div>All Musical Instruments</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/String Instruments.webp">
+                                        <img src="\static/mobil categorys/String Instruments.webp" loading="lazy"
+                                            alt="String Instruments">
+                                        <div>String Instruments</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Musical Accessories.webp">
+                                        <img src="\static/mobil categorys/Musical Accessories.webp" loading="lazy"
+                                            alt="Musical Accessories">
+                                        <div>Musical Accessories</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Wind Instruments.webp">
+                                        <img src="\static/mobil categorys/Wind Instruments.webp" loading="lazy"
+                                            alt="Wind Instruments">
+                                        <div>Wind Instruments</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Books">
+                            <div class="product-title">Books</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Fiction & Non Fiction</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/View All Books.webp">
+                                        <img src="\static/mobil categorys/View All Books.webp" loading="lazy" alt="View All Books">
+                                        <div>View All Books</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Childrens Books.webp">
+                                        <img src="\static/mobil categorys/Childrens Books.webp" loading="lazy"
+                                            alt="Childrens Books">
+                                        <div>Childrens Books</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Self Help Books.webp">
+                                        <img src="\static/mobil categorys/Self Help Books.webp" loading="lazy"
+                                            alt="Self Help Books">
+                                        <div>Self Help Books</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Novels.webp">
+                                        <img src="\static/mobil categorys/Novels.webp" loading="lazy" alt="Novels">
+                                        <div>Novels</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Economics & Commerce.webp">
+                                        <img src="\static/mobil categorys/Economics & Commerce.webp" loading="lazy"
+                                            alt="Economics & Commerce">
+                                        <div>Economics & Commerce</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Religious Books.webp">
+                                        <img src="\static/mobil categorys/Religious Books.webp" loading="lazy"
+                                            alt="Religious Books">
+                                        <div>Religious Books</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">Academic Books</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/School Textbooks & Guides.webp">
+                                        <img src="\static/mobil categorys/School Textbooks & Guides.webp" loading="lazy"
+                                            alt="School Textbooks & Guides">
+                                        <div>School Textbooks & Guides</div>
+                                    </a>
+                                </div>
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="\static/mobil categorys/Reference Books.webp">
+                                        <img src="\static/mobil categorys/Reference Books.webp" loading="lazy"
+                                            alt="Reference Books">
+                                        <div>Reference Books</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="Help-More">
+                            <div class="product-title">Help & More</div>
+                            <div class="product-title" style="font-size: 1.2rem;">Help & More</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="#Supplier" style="text-decoration: underline; color: #0000FF;">
+                                        Become a Supplier
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-title" style="font-size: 1.2rem;">contact us</div>
+                            <div class="row">
+                                <div class="col-4 col-md-2 product-item">
+                                    <a href="#query@shopingmart.com"
+                                        style="text-decoration: underline; color: #0000FF;">
+                                        query@shopingmart.com
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="space"></div>
+                    </div>
+                </div>
+            </div>
+            <button data-target="filter" class="categorys-btn">filter</button>
+            <div id="filter" class="categorys-btn-div">
+                filter
+            </div>
+        </div>
+    </header>
+
+    <!-- Display Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show m-0" id="myElement" role="alert">
+                <strong>{{ message.tags }}!</strong> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- Main Content -->
+    {% block body %}
+    {% endblock body %}
+
+    <footer class="footer d-flex py-5 border-dark border-top border-bottom bg-dark-subtle" style="height: auto; max-height: 500px;">
+        <div class="container py-5">
+          <div class="row align-items-center">
+            <!-- Left: Logo -->
+            <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <img src="\static/1..png" alt="Logo">
+            </div>
+            <!-- Right: Social Media Buttons and Text -->
+            <div class="col-12 col-md-6 text-center text-md-end">
+              <div class="mb-2">
+                <a href="https://facebook.com" style="width:50px; height: 50px; text-decoration: none;">
+                    <img src="\static/youtube.svg" style="width:45px; height: 45px; margin: 10px;">
+                </a>
+                <a href="https://twitter.com" style="width:50px; height: 50px; text-decoration: none;">
+                    <img src="/static/linkedin.svg" style="width:45px; height: 45px; margin: 10px;">
+                </a>
+                <a href="https://instagram.com" style="width:50px; height: 50px; text-decoration: none;">
+                    <img src="/static/facebook.svg" style="width:55px; height: 55px; margin: 10px;">
+                </a>
+                <a href="https://instagram.com" style="width:50px; height: 50px; text-decoration: none;">
+                    <img src="/static/instagram.svg" style="width:45px; height: 45px; margin: 10px;">
+                </a>
+              </div>
+              <p class="social-text d-inline-block text-center">
+                Connect with us on social media for updates and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+    <script src="\static/end.js"></script>
+    <script>
+        const element = document.getElementById("myElement");
+        if(element){
+            if (element.classList.contains("alert-error")){
+                element.classList.replace("alert-error", "alert-danger");
+            }
+        }
+    </script>
+</body>
+
+</html>

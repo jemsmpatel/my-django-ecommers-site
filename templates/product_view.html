@@ -1,0 +1,160 @@
+{%extends 'base.html'%}
+
+{%block title%} Product {%endblock title%}
+
+
+{%block body%}
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .product-image {
+        max-height: 475px;
+        object-fit: cover;
+    }
+
+    .price {
+        font-size: 1.5rem;
+        color: #ff6f00;
+    }
+
+    .btn-buy-now {
+        background-color: #ff6f00;
+        color: white;
+    }
+
+    .btn-buy-now:hover {
+        background-color: #ff3d00;
+        color: white;
+    }
+
+    .content {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        /* Show 4 lines by default */
+        -webkit-box-orient: vertical;
+    }
+
+    .content.expanded {
+        overflow: visible;
+        -webkit-line-clamp: unset;
+        -webkit-box-orient: unset;
+    }
+
+    .read-more-btn {
+        color: #007bff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        font-size: 1rem;
+        text-decoration: underline;
+    }
+    .thumbnail {
+        cursor: pointer;
+        width: 80px;
+        height: auto;
+        transition: transform 0.2s ease;
+    }
+
+    .thumbnail:hover {
+        transform: scale(1.1);
+    }
+
+    #mainImage {
+        /* width: 100%; */
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="container-fluid py-3">
+    <div class="row">
+        <!-- Product Image -->
+        <div class="col-md-6 h-100">
+            <div class="mb-3 d-flex justify-content-center" style="height: 65%;">
+                {% if product.images.all %}
+                    <img id="mainImage" src="{{ product.images.all.0.image.url }}" alt="Main Image" class="img-fluid rounded-4">
+                {% else %}
+                    <img id="mainImage" src="https://via.placeholder.com/600x390?text=Main+Image" alt="No Image Available" class="img-fluid rounded-4">
+                {% endif %}
+            </div>
+            <div class="d-flex gap-2 overflow-auto ps-4" style="height: 100px; white-space: nowrap;">
+                {% for image in product.images.all %}
+                    <img src="{{ image.image.url }}" class="m-2 rounded-4 thumbnail" data-large="{{ image.image.url }}">
+                {% empty %}
+                <img src="https://via.placeholder.com/80?text=1" class="m-2 rounded-4 thumbnail" data-large="https://via.placeholder.com/600x390?text=Thumbnail+1">
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1 class="mb-3 mt-3">{{ product.name }}</h1>
+            <p class="text-muted">breand : {{ product.brand }}</p>
+            <p id="description" class="content m-0">{{ product.description }}</p>
+            <button id="readMoreBtn" class="read-more-btn">Read More</button>
+            <div class="d-flex align-items-center mb-3 mt-3">
+                <span class="price me-3">{{ product.price }}₹</span>
+                <span class="text-muted h6">{{ product.discount_price}}₹ off</span>
+                <span style="width: 20px;"></span>
+                <span class="text-muted text-decoration-line-through">₹{{ product.mrp_price }}</span>
+            </div>
+            <label for="quantity" class="form-label">Available stock: {{ product.stock }}</label>
+            <div class="d-flex align-items-center mb-4">
+                <label for="quantity" class="form-label me-3">Quantity:</label>
+                <input type="number" id="quantity" class="form-control w-25" value="1" max="{{ product.stock }}" min="1">
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-buy-now me-3">Buy Now</button>
+                <button class="btn btn-outline-primary">Add to Cart</button>
+            </div>
+            <ul class="mt-4 list-unstyled">
+                <li><strong>Delivery:</strong> Free shipping on orders above ₹500 in gujrat, india</li>
+                <li><strong>Return Policy:</strong> Easy 30-day returns</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const description = document.getElementById('description');
+    const readMoreBtn = document.getElementById('readMoreBtn');
+
+    // Function to check if content fits within 4 lines
+    const checkContentHeight = () => {
+        const maxHeight = parseInt(getComputedStyle(description).lineHeight) * 3; // Height of 4 lines
+        if (description.scrollHeight <= maxHeight) {
+            readMoreBtn.style.display = 'none'; // Hide the button if content fits
+        }
+    };
+
+    // Toggle Read More / Read Less
+    readMoreBtn.addEventListener('click', () => {
+        description.classList.toggle('expanded');
+        if (description.classList.contains('expanded')) {
+            readMoreBtn.textContent = 'Read Less';
+        } else {
+            readMoreBtn.textContent = 'Read More';
+        }
+    });
+    // Check if content fits on page load
+    window.onload = checkContentHeight;
+
+
+    // Get the main image and thumbnails
+    const mainImage = document.getElementById('mainImage');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    // Add hover event listeners to thumbnails
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('mouseover', () => {
+            // Replace the main image source with the thumbnail's data-large attribute
+            const newSrc = thumbnail.getAttribute('data-large');
+            mainImage.setAttribute('src', newSrc);
+        });
+    });
+</script>
+
+{%endblock body%}

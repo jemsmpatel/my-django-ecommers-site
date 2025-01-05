@@ -1,0 +1,106 @@
+{%extends 'base.html'%}
+
+{%block title%} PROFILE {%endblock title%}
+
+
+{%block body%}
+
+<style>
+    .profile {
+        /* background: linear-gradient(135deg, #6A11CB, #2575FC); */
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 20px;
+    }
+
+    .profile-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+        text-align: center;
+        background: linear-gradient(135deg, #858b97, #3b485e);
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 30px 0;
+        color: white;
+    }
+
+    .profile-header img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: white;
+        padding: 5px;
+    }
+
+    .profile-info {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .profile-info i {
+        margin-right: 10px;
+        color: #858b97;
+    }
+
+    .edit-btn {
+        background: linear-gradient(135deg, #858b97, #3b485e);
+        border: none;
+        color: white;
+        border-radius: 25px;
+        width: 100%;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="profile">
+    <div class="profile-card shadow-lg">
+        <!-- Profile Header -->
+        <div class="profile-header mb-4">
+            <img src="https://via.placeholder.com/100" alt="Profile Picture">
+            <h4 class="mt-2">{% if user.name %} {{ user.name }} {% else %} User Name {% endif %}</h4>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="profile-body">
+            <div class="profile-info">
+                <i class="bi bi-person"></i> {% if user.name %} {{ user.name }} {% else %} User Name {% endif %}
+            </div>
+            <hr>
+            <div class="profile-info">
+                <i class="bi bi-calendar"></i> Birthday
+            </div>
+            <hr>
+            <div class="profile-info">
+                <i class="bi bi-phone"></i> {% if user.contact %} {{ user.contact }} {% else %} 81812 34567 {% endif %}
+            </div>
+            <hr>
+            <div class="profile-info">
+                <i class="bi bi-instagram"></i> Instagram account
+            </div>
+            <hr>
+            <div class="profile-info">
+                <i class="bi bi-envelope"></i> {% if user.email %} {{ user.email }} {% else %} info@aplusdesign.co {% endif %}
+            </div>
+            <!-- <div class="profile-info">
+                <i class="bi bi-eye"></i> Password
+            </div> -->
+        </div>
+
+        <!-- Edit Button -->
+        <button class="btn edit-btn">Edit Profile</button>
+    </div>
+</div>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+{%endblock body%}
